@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public class Formula implements Observer {
     private String formula;
 
