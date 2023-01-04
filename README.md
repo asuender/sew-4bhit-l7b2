@@ -1,6 +1,6 @@
 # sew-4bhit-l7b2
 
-Andreas Sünder, 21.12.2022
+Andreas Sünder, 04.01.2023
 
 Klassendiagramm:
 
