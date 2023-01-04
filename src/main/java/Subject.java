@@ -1,7 +1,7 @@
 import java.util.*;
 
 public abstract class Subject {
-    protected List<Observer> observers;
+    private List<Observer> observers;
 
     public Subject() {
         this.observers = new ArrayList<>();
@@ -11,15 +11,19 @@ public abstract class Subject {
         this.observers = observers;
     }
 
-    protected void attach(Observer observer) {
+    public List<Observer> getObservers() {
+        return this.observers;
+    }
+
+    public void attach(Observer observer) {
         observers.add(observer);
     }
 
-    protected void detach(Observer observer) {
+    public void detach(Observer observer) {
         observers.remove(observer);
     }
 
-    protected void notifyObservers() {
+    public void notifyObservers() {
         for (Observer observer : observers) {
             observer.update();
         }

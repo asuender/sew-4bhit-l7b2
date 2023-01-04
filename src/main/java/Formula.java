@@ -1,12 +1,27 @@
 import java.sql.SQLOutput;
 
-public class Formula extends AbstractCell {
+public class Formula implements Observer {
     private String formula;
 
+    private Cell connectedCell;
+    private Cell cell1;
+    private Cell cell2;
 
-    public Formula(String formula, Table table) {
-        super(table);
-        setValue(formula);
+    public Formula(String formula, Cell connectedCell) {
+        this.formula = formula;
+        this.connectedCell = connectedCell;
+    }
+
+    public Formula(String formula, Cell connectedCell, Cell cell1, Cell cell2) {
+        this.formula = formula;
+        this.connectedCell = connectedCell;
+        this.cell1 = cell1;
+        this.cell2 = cell2;
+
+        this.cell1.attach(this);
+        this.cell2.attach(this);
+
+        this.update();
     }
 
     public void setValue(String formula) {
@@ -22,43 +37,28 @@ public class Formula extends AbstractCell {
     }
 
     @Override
-    public double getValue() {
-        return this.value;
-    }
-
-    @Override
     public void update() {
         String f = this.formula.substring(1);
 
         String[] parts = f.split("[+\\-*/]");
         String operator = f.replaceAll("[A-Z0-9]", "").trim();
 
-        double value1 = this.table.getCell(parts[0]).getValue();
-        double value2 = this.table.getCell(parts[1]).getValue();
+        double value1 = this.cell1.getValue();
+        double value2 = this.cell2.getValue();
 
         switch (operator) {
             case "+":
-                this.value = value1 + value2;
+                this.connectedCell.setValue(value1 + value2);
                 break;
             case "-":
-                this.value = value1 - value2;
+                this.connectedCell.setValue(value1 - value2);
                 break;
             case "*":
-                this.value = value1 * value2;
+                this.connectedCell.setValue(value1 * value2);
                 break;
             case "/":
-                this.value = value1 / value2;
+                this.connectedCell.setValue(value1 / value2);
                 break;
         }
-    }
-
-    @Override
-    public String print() {
-        return String.valueOf(this.value);
-    }
-
-    @Override
-    public String printRaw() {
-        return this.formula;
     }
 }

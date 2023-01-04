@@ -1,29 +1,43 @@
-public class Cell extends AbstractCell {
-    public Cell(double value, Table table) {
-        super(value, table);
+public class Cell extends Subject {
+    private double value;
+    private Formula formula;
+
+    public Cell(double value) {
+        this.value = value;
     }
 
-    @Override
+    public Cell(Formula formula) {
+        super();
+        this.formula = formula;
+    }
+
+    public Cell(String formulaText, Cell cell1, Cell cell2) {
+        super();
+        this.formula = new Formula(formulaText, this, cell1, cell2);
+
+        super.notifyObservers();
+    }
+
     public double getValue() {
-        return this.value;
+        return value;
     }
 
     public void setValue(double value) {
         this.value = value;
+
+        super.notifyObservers();
+    }
+
+    public Formula getFormula() {
+        return formula;
+    }
+
+    public void setFormula(Formula formula) {
+        this.formula = formula;
     }
 
     @Override
-    public void update() {
-
-    }
-
-    @Override
-    public String print() {
-        return String.valueOf(value);
-    }
-
-    @Override
-    public String printRaw() {
-        return this.print();
+    public String toString() {
+        return String.format("%.2f", this.value);
     }
 }
