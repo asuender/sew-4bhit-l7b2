@@ -1,5 +1,10 @@
 import java.io.IOException;
 
+/**
+ * This class is used to test the Table and all other classes part of the observer pattern.
+ * @author asuender
+ * @version 0.2
+ */
 public class TableTest {
     private static void waitForEnter(String message) {
         System.out.println(message);

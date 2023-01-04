@@ -1,5 +1,11 @@
 import java.util.*;
 
+/**
+ * This class acts as a base subject class to be used by every subject as required by the observer pattern.
+ * It contains the methods to attach and detach observers and to notify them.
+ * @author asuender
+ * @version 0.2
+ */
 public abstract class Subject {
     private List<Observer> observers;
 

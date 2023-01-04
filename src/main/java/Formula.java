@@ -1,3 +1,9 @@
+/**
+ * This class represents a formula. Every formula has a text and a some cells it depends on. It also has a result cell which
+ * is the cell the formula is in. As of the time being, the formula is only able to calculate the sum, diff, prod and quot of only two cells.
+ * @author asuender
+ * @version 0.2
+ */
 public class Formula implements Observer {
     private String formula;
 

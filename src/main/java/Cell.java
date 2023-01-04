@@ -1,3 +1,9 @@
+/**
+ * This class represents a cell in a table. It has a value and a formula to which it is connected to.
+ * It also has a list of observers which are notified when the value changes.
+ * @author asuender
+ * @version 0.2
+ */
 public class Cell extends Subject {
     private double value;
     private Formula formula;

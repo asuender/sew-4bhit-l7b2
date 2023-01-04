@@ -1,5 +1,11 @@
 import java.util.*;
 
+/**
+ * This class represents a table which contains cells. It is used to store and retrieve cells
+ * and is independent of the actual cell implementation.
+ * @author asuender
+ * @version 0.2
+ */
 public class Table {
     private final int numRows;
     private final int numCols;
