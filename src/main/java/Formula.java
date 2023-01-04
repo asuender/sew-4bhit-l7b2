@@ -35,7 +35,6 @@ public class Formula implements Observer {
     public void update() {
         String f = this.formula.substring(1);
 
-        String[] parts = f.split("[+\\-*/]");
         String operator = f.replaceAll("[A-Z0-9]", "").trim();
 
         double value1 = this.cell1.getValue();
