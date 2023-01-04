@@ -7,11 +7,6 @@ public class Formula implements Observer {
     private Cell cell1;
     private Cell cell2;
 
-    public Formula(String formula, Cell connectedCell) {
-        this.formula = formula;
-        this.connectedCell = connectedCell;
-    }
-
     public Formula(String formula, Cell connectedCell, Cell cell1, Cell cell2) {
         this.formula = formula;
         this.connectedCell = connectedCell;
@@ -24,7 +19,7 @@ public class Formula implements Observer {
         this.update();
     }
 
-    public void setValue(String formula) {
+    public void setFormula(String formula) {
         if (formula == null || formula.isEmpty()) {
             throw new FormulaNotValidException("Formula is null or empty");
         }
