@@ -14,8 +14,6 @@ public class Cell extends Subject {
     public Cell(String formulaText, Cell cell1, Cell cell2) {
         super();
         this.formula = new Formula(formulaText, this, cell1, cell2);
-
-        super.notifyObservers();
     }
 
     public double getValue() {
