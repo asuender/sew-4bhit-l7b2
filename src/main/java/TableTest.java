@@ -50,6 +50,7 @@ public class TableTest {
         System.out.println(table);
         waitForEnter("Setting C3 to value 6");
 
+        table.getCell("C3").clearFormula();
         table.setCell("C3", new Cell(6));
 
         System.out.println(table);

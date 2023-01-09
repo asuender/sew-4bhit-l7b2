@@ -35,6 +35,11 @@ public class Formula implements Observer {
         this.formula = formula.trim();
     }
 
+    public void clear() {
+        this.cell1.detach(this);
+        this.cell2.detach(this);
+    }
+
     @Override
     public void update() {
         String f = this.formula.substring(1);

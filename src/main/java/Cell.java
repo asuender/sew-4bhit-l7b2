@@ -40,6 +40,11 @@ public class Cell extends Subject {
         this.formula = formula;
     }
 
+    public void clearFormula() {
+        this.formula.clear();
+        this.formula = null;
+    }
+
     @Override
     public String toString() {
         return String.format("%.2f", this.value);
